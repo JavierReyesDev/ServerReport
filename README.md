@@ -27,6 +27,24 @@ python main.py
 
 The script will execute several system commands to gather metrics such as disk usage, memory usage, CPU temperature, process count, swap usage, and the number of users logged in. It will then format this information into an email and send it to the specified recipients.
 
+## Scheduling with Crontab
+
+To automate the execution of the script, you can use `crontab` to schedule it to run at specific intervals. Follow these steps to set up a cron job:
+
+1. Open the crontab file for editing:
+  ```sh
+  crontab -e
+  ```
+
+2. Add a new line to schedule the script. For example, to run the script every day at 2 AM, add the following line:
+  ```sh
+  00 20 * * * /usr/bin/python3 /path/to/your/main.py
+  ```
+
+3. Save and close the crontab file.
+
+The cron job will now run the script at the specified time, collecting the server metrics and sending the report via email automatically.
+
 ## Metrics Collected
 
 - **Root memory usage**: Disk usage of the root directory.
